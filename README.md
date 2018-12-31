@@ -154,3 +154,12 @@ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -mul
 Uma vez que é especificada a opção `--global`, basta executar este comando uma
 vez para que o Notepad++ fique configurado para todos os repositórios Git de um
 dado utilizador no mesmo PC.
+
+## Referências
+
+*   [Unity User Manual - Smart Merge](https://docs.unity3d.com/Manual/SmartMerge.html)
+*   [Setting up SourceTree to merge unity3d scenes with UnityYAMLMerge](https://stackoverflow.com/questions/36566436/setting-up-sourcetree-to-merge-unity3d-scenes-with-unityyamlmerge/45738772)
+*   [Smart Merging Unity](https://gist.github.com/diego-augusto/876bd825730755a4d969d5e436464858)
+*   [Unity, SourceTree and Merge Conflicts](https://www.youtube.com/watch?v=EQB-N-ClO9g)
+*   [Git mergetool generates unwanted .orig files](https://stackoverflow.com/questions/1251681/git-mergetool-generates-unwanted-orig-files)
+*   [How to set Notepad++ as the default Git editor for commits instead of Vim](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-set-Notepad-as-the-default-Git-editor-for-commits-instead-of-Vim)
