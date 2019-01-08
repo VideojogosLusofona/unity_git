@@ -84,7 +84,9 @@ ferramenta na nova instalação do Unity.
 
 ### Configuração ao nível do Unity
 
-Abrir o ficheiro `mergespecfile.txt` com o Notepad++ e substituir as linhas:
+A mesma pasta que contém a ferramenta `UnityYAMLMerge` contém também o seu
+ficheiro de configuração, de nome `mergespecfile.txt`. Abrir este ficheiro com
+o Notepad++ e substituir as linhas:
 
 ```
 unity use "%programs%\YouFallbackMergeToolForScenesHere.exe" "%l" "%r" "%b" "%d"
@@ -111,33 +113,22 @@ instalação do Unity de igual forma.
 
 Por exemplo, se estivermos no ramo `master` e quisermos fazer *merge* do ramo
 `new-boss`, vamos executar o seguinte comando `git merge new-boss`. Se
-existirem conflitos, o resultado vai ser algo do género:
+existirem conflitos que o Git não conseguir resolver, o resultado vai ser algo
+do género:
 
 ```
-Merging:
-Assets/Scenes/SampleScene.unity
-
-Normal merge conflict for 'Assets/Scenes/SampleScene.unity':
-  {local}: modified file
-  {remote}: modified file
-Conflicts:
-Left  2022742241.BoxCollider.m_Center.x add as 0.1
-Right 2022742241.BoxCollider.m_Center.x add as 0
-Left  2022742241.BoxCollider.m_Center.y add as 0.2
-Right 2022742241.BoxCollider.m_Center.y add as 0
-Left  2022742241.BoxCollider.m_Center.z add as 0.15
-Right 2022742241.BoxCollider.m_Center.z add as 0.01
-Left  2022742241.BoxCollider.m_Size.x add as 1.2
-Right 2022742241.BoxCollider.m_Size.x add as 1.11
-...
-Conflict handling:
+Auto-merging Assets/Scenes/MyScene.unity
+CONFLICT (content): Merge conflict in Assets/Scenes/MyScene.unity
+Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-A maioria dos conflitos é resolvida automaticamente. No caso dos conflitos não
-resolvidos será aberta uma janela do Meld, tendo o utilizador apenas de
-especificar, para cada conflito, se quer utilizar as modificações do ramo
-`master` ou do ramo `new-boss`, e guardar essas escolhas. Os conflitos são
-marcados como resolvidos e basta fazer `git commit` para finalizar o *merge*.
+Para resolver os conflitos, vamos invocar a ferramenta configurada para o
+efeito com o comando `git mergetool`. A maioria dos conflitos é resolvida
+automaticamente. No caso dos conflitos não resolvidos será aberta uma janela do
+Meld, tendo o utilizador apenas de especificar, para cada conflito, se quer
+utilizar as modificações do ramo `master` ou do ramo `new-boss`, e guardar
+essas escolhas. Os conflitos são marcados como resolvidos e basta fazer
+`git commit` para finalizar o *merge*.
 
 ## Configurar Git para usar Notepad++ nas mensagens de *commit*
 
