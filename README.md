@@ -14,7 +14,7 @@ Este guia assume que o seguinte software está instalado num sistema Windows 10:
 
 * [Unity](https://unity3d.com/)
 * [Git](https://git-scm.com/) e [Git LFS](https://git-lfs.github.com/)
-* [Meld](http://meldmerge.org/) ou [WinMerge](http://winmerge.org/)
+* [KDiff3](http://kdiff3.sourceforge.net/)
 * [Notepad++](https://notepad-plus-plus.org/)
 
 Alguns detalhes poderão ser ligeiramente diferentes em Mac e Linux.
@@ -93,18 +93,12 @@ unity use "%programs%\YouFallbackMergeToolForScenesHere.exe" "%l" "%r" "%b" "%d"
 prefab use "%programs%\YouFallbackMergeToolForPrefabsHere.exe" "%l" "%r" "%b" "%d"
 ```
 
-por (caso uses o Meld):
+por
 
 ```text
-unity use "%programs%\Meld\Meld.exe" "%r" "%b" "%l" -o "%d" --auto-merge
-prefab use "%programs%\Meld\Meld.exe" "%r" "%b" "%l" -o "%d" --auto-merge
-* use "%programs%\Meld\Meld.exe" "%r" "%b" "%l" -o "%d" --auto-merge
-```
-
-ou por (caso uses o WinMerge)
-
-```text
-brevemente
+unity use "%programs%/KDiff3/kdiff3.exe" "%b" "%l" "%r" -o "%d"
+prefab use "%programs%/KDiff3/kdiff3.exe" "%b" "%l" "%r" -o "%d"
+* use "%programs%/KDiff3/kdiff3.exe" "%b" "%l" "%r" -o "%d"
 ```
 
 São necessárias permissões de administrador para alterar o ficheiro. Ao guardar
@@ -131,7 +125,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 Para resolver os conflitos, vamos invocar a ferramenta configurada para o
 efeito com o comando `git mergetool`. A maioria dos conflitos é resolvida
 automaticamente. No caso dos conflitos não resolvidos será aberta uma janela do
-Meld, tendo o utilizador apenas de especificar, para cada conflito, se quer
+KDiff3, tendo o utilizador apenas de especificar, para cada conflito, se quer
 utilizar as modificações do ramo `master` ou do ramo `new-boss`, e guardar
 essas escolhas. Os conflitos são marcados como resolvidos e basta fazer
 `git commit` para finalizar o *merge*.
