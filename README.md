@@ -12,10 +12,10 @@ work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 Este guia assume que o seguinte software está instalado num sistema Windows 10:
 
-*   [Unity](https://unity3d.com/)
-*   [Git](https://git-scm.com/) e [Git LFS](https://git-lfs.github.com/)
-*   [Meld](http://meldmerge.org/)
-*   [Notepad++](https://notepad-plus-plus.org/)
+* [Unity](https://unity3d.com/)
+* [Git](https://git-scm.com/) e [Git LFS](https://git-lfs.github.com/)
+* [Meld](http://meldmerge.org/) ou [WinMerge](http://winmerge.org/)
+* [Notepad++](https://notepad-plus-plus.org/)
 
 Alguns detalhes poderão ser ligeiramente diferentes em Mac e Linux.
 
@@ -23,12 +23,12 @@ Alguns detalhes poderão ser ligeiramente diferentes em Mac e Linux.
 
 Confirmar as seguintes definições em cada novo projeto no Unity:
 
-*   Edit &#8594; Project Settings &#8594; Editor
-    1.  Version Control, Mode &#8594; Visible Meta Files
-    2.  Asset Serialization, Mode &#8594; Force Text
-*   Edit &#8594; Project Settings &#8594; Player
-    1.  Scripting Runtime Version &#8594; .NET 4.x Equivalent
-    2.  API Compatibility Level &#8594; .NET Standard 2.0
+* Edit &#8594; Project Settings &#8594; Editor
+  1. Version Control, Mode &#8594; Visible Meta Files
+  2. Asset Serialization, Mode &#8594; Force Text
+* Edit &#8594; Project Settings &#8594; Player
+  1. Scripting Runtime Version &#8594; .NET 4.x Equivalent
+  2. API Compatibility Level &#8594; .NET Standard 2.0
 
 ## Configuração do Git
 
@@ -36,12 +36,12 @@ Confirmar as seguintes definições em cada novo projeto no Unity:
 
 Colocar na pasta raiz do projeto Unity os seguintes ficheiros:
 
-*   [`.gitignore`](https://raw.githubusercontent.com/github/gitignore/master/Unity.gitignore) -
-    Indica ficheiros temporários a ignorar, ou seja, que não serão guardados
-    no repositório.
-*   [`.gitattributes`](https://raw.githubusercontent.com/VideojogosLusofona/lp2_2018_aulas/master/Aula04/unity.gitattributes) -
-    Entre outras coisas, indica ficheiros a guardar em modo Git LFS,
-    nomeadamente ficheiros binários (imagens, sons, texturas, vídeos, etc).
+* [`.gitignore`](.gitignore) -
+  Indica ficheiros temporários a ignorar, ou seja, que não serão guardados
+  no repositório.
+* [`.gitattributes`](.gitattributes) -
+  Entre outras coisas, indica ficheiros a guardar em modo Git LFS,
+  nomeadamente ficheiros binários (imagens, sons, texturas, vídeos, etc).
 
 A forma mais simples de o fazer é abrir cada um dos *links* no *browser* e
 fazer CTRL+S para salvar cada um dos ficheiros. Os ficheiros devem ser
@@ -53,11 +53,11 @@ guardados na pasta raiz do projeto Unity e devem ter exatamente os nomes
 Abrir Git Bash na pasta do projeto (ou fazer `cd` até à pasta do projeto), e
 inicializar o repositório Git com o seguinte comando:
 
-*   `git init`
+* `git init`
 
 Inicializar Git LFS para o repositório criado:
 
-*   `git lfs install`
+* `git lfs install`
 
 ## Configuração para gestão de *merge conflicts*
 
@@ -68,7 +68,7 @@ seguinte no fim do mesmo (confirma que o caminho completo até à ferramenta
 `UnityYAMLMerge` está correto - nota que são necessário duas barras entre
 cada pasta):
 
-```
+```ini
 [merge]
 	tool = unityyamlmerge
 [mergetool "unityyamlmerge"]
@@ -88,17 +88,23 @@ A mesma pasta que contém a ferramenta `UnityYAMLMerge` contém também o seu
 ficheiro de configuração, de nome `mergespecfile.txt`. Abrir este ficheiro com
 o Notepad++ e substituir as linhas:
 
-```
+```text
 unity use "%programs%\YouFallbackMergeToolForScenesHere.exe" "%l" "%r" "%b" "%d"
 prefab use "%programs%\YouFallbackMergeToolForPrefabsHere.exe" "%l" "%r" "%b" "%d"
 ```
 
-por:
+por (caso uses o Meld):
 
-```
+```text
 unity use "%programs%\Meld\Meld.exe" "%r" "%b" "%l" -o "%d" --auto-merge
 prefab use "%programs%\Meld\Meld.exe" "%r" "%b" "%l" -o "%d" --auto-merge
 * use "%programs%\Meld\Meld.exe" "%r" "%b" "%l" -o "%d" --auto-merge
+```
+
+ou por (caso uses o WinMerge)
+
+```text
+brevemente
 ```
 
 São necessárias permissões de administrador para alterar o ficheiro. Ao guardar
@@ -116,7 +122,7 @@ Por exemplo, se estivermos no ramo `master` e quisermos fazer *merge* do ramo
 existirem conflitos que o Git não conseguir resolver, o resultado vai ser algo
 do género:
 
-```
+```text
 Auto-merging Assets/Scenes/MyScene.unity
 CONFLICT (content): Merge conflict in Assets/Scenes/MyScene.unity
 Automatic merge failed; fix conflicts and then commit the result.
@@ -138,7 +144,7 @@ configura o Git para usar o Notepad++ nas mensagens de *commit* (assume-se que
 o Notepad++ está instalado na pasta indicada, caso contrário alterar em
 conformidade):
 
-```
+```powershell
 git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
 ```
 
@@ -148,9 +154,9 @@ dado utilizador no mesmo PC.
 
 ## Referências
 
-*   [Unity User Manual - Smart Merge](https://docs.unity3d.com/Manual/SmartMerge.html)
-*   [Setting up SourceTree to merge unity3d scenes with UnityYAMLMerge](https://stackoverflow.com/questions/36566436/setting-up-sourcetree-to-merge-unity3d-scenes-with-unityyamlmerge/45738772)
-*   [Smart Merging Unity](https://gist.github.com/diego-augusto/876bd825730755a4d969d5e436464858)
-*   [Unity, SourceTree and Merge Conflicts](https://www.youtube.com/watch?v=EQB-N-ClO9g)
-*   [Git mergetool generates unwanted .orig files](https://stackoverflow.com/questions/1251681/git-mergetool-generates-unwanted-orig-files)
-*   [How to set Notepad++ as the default Git editor for commits instead of Vim](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-set-Notepad-as-the-default-Git-editor-for-commits-instead-of-Vim)
+* [Unity User Manual - Smart Merge](https://docs.unity3d.com/Manual/SmartMerge.html)
+* [Setting up SourceTree to merge unity3d scenes with UnityYAMLMerge](https://stackoverflow.com/questions/36566436/setting-up-sourcetree-to-merge-unity3d-scenes-with-unityyamlmerge/45738772)
+* [Smart Merging Unity](https://gist.github.com/diego-augusto/876bd825730755a4d969d5e436464858)
+* [Unity, SourceTree and Merge Conflicts](https://www.youtube.com/watch?v=EQB-N-ClO9g)
+* [Git mergetool generates unwanted .orig files](https://stackoverflow.com/questions/1251681/git-mergetool-generates-unwanted-orig-files)
+* [How to set Notepad++ as the default Git editor for commits instead of Vim](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/How-to-set-Notepad-as-the-default-Git-editor-for-commits-instead-of-Vim)
