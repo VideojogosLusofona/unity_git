@@ -23,12 +23,12 @@ Alguns detalhes poderão ser ligeiramente diferentes em Mac e Linux.
 
 Confirmar as seguintes definições em cada novo projeto no Unity:
 
+* Edit &#8594; Project Settings &#8594; Version Control
+  1. Mode &#8594; Visible Meta Files
 * Edit &#8594; Project Settings &#8594; Editor
-  1. Version Control, Mode &#8594; Visible Meta Files
-  2. Asset Serialization, Mode &#8594; Force Text
+  1. Asset Serialization, Mode &#8594; Force Text
 * Edit &#8594; Project Settings &#8594; Player
-  1. Scripting Runtime Version &#8594; .NET 4.x Equivalent
-  2. API Compatibility Level &#8594; .NET Standard 2.0
+  1. API Compatibility Level &#8594; .NET Standard 2.0
 
 ## Configuração do Git
 
