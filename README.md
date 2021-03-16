@@ -1,12 +1,14 @@
 <!--
-Guia para uso de Git em projetos Unity (c) by Nuno Fachada
+Guia para uso de Git em projetos Unity (c) by Nuno Fachada and contributors
 
 Guia para uso de Git em projetos Unity is licensed under a
-Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+Creative Commons Attribution-ShareAlike 4.0 International Public License.
 
 You should have received a copy of the license along with this
-work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
+work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/>.
 -->
+
+[![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 # Guia para uso de Git em projetos Unity
 
