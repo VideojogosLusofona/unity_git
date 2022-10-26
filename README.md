@@ -23,14 +23,15 @@ Alguns detalhes poderão ser ligeiramente diferentes em Mac e Linux.
 
 ## Configuração dos projetos Unity
 
-Confirmar as seguintes definições em cada novo projeto no Unity:
+Confirmar as seguintes definições em cada novo projeto no Unity (em princípio
+são as definições por omissão):
 
 * Edit &#8594; Project Settings &#8594; Version Control
   1. Mode &#8594; Visible Meta Files
 * Edit &#8594; Project Settings &#8594; Editor
   1. Asset Serialization, Mode &#8594; Force Text
 * Edit &#8594; Project Settings &#8594; Player
-  1. API Compatibility Level &#8594; .NET Standard 2.0
+  1. API Compatibility Level &#8594; .NET Standard 2.1
 
 ## Configuração do Git
 
